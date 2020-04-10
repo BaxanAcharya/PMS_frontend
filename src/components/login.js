@@ -44,7 +44,8 @@ class login extends Component {
                 logged:false,
                 Lstatus:''
             })
-        }else{
+        }
+        else{
             axois.post('http://192.168.1.235:8080/users/login', this.state)
             .then((response)=>{
                 localStorage.setItem('myToken',response.data.token)
@@ -115,7 +116,7 @@ class login extends Component {
                       :null
                 } 
 
-{
+                {
                   (this.state.vpassword ==='Password')?
                   <p className='alert'>
                   Password cannot be empty !!!

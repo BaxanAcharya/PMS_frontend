@@ -83,7 +83,6 @@ class login extends Component {
             return <Redirect to='/dashboard' />
         }
         return (
-          
           <form className='fix'>
                 <h3>Login In Here!!!!!!</h3>
 
@@ -134,9 +133,9 @@ class login extends Component {
                     <input type="password" name="password" className="form-control" placeholder="Enter password" value={this.state.password} onChange={this.handleChange} />
                 </div>
 
-                <button type="submit" onClick={this.login} className="btn btn-primary btn-block">Login</button>
+                <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
                 <p className="forgot-password text-right">
-                     <a href="/register">Register</a>
+                     Don't have account? <a href="/register">Register</a>
                 </p>
             </form>
         )

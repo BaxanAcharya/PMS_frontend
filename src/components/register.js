@@ -39,20 +39,20 @@ export default class SignUp extends Component {
                 Rstatus:''
             })
         }
-        else if(this.state.password===''){
+        else if(this.state.username.length<8){
             this.setState({
-                vpassword:'Password',
-                vusername:'',
+                vusername:'UsernameL',
+                vpassword:'',
                 username:'',
                 password:'',
                 registered:false,
                 Rstatus:''
             })
         }
-        else if(this.state.username.length<8){
+        else if(this.state.password===''){
             this.setState({
-                vusername:'UsernameL',
-                vpassword:'',
+                vpassword:'Password',
+                vusername:'',
                 username:'',
                 password:'',
                 registered:false,
@@ -112,7 +112,7 @@ export default class SignUp extends Component {
         }
 
         return (
-            <form>
+            <form className="fix">
                 <h3>Register Here!!!!!</h3>
                 <div className="form-group">
                     {
@@ -143,6 +143,14 @@ export default class SignUp extends Component {
                       :null
                 } 
 
+{
+                  (this.state.vpassword ==='Password')?
+                  <p className='alert'>
+                 Password cannot be empty !!!
+              </p> 
+                      :null
+                } 
+
                 {
                   (this.state.vpassword ==='PasswordL')?
                   <p className='alert'>
@@ -160,9 +168,9 @@ export default class SignUp extends Component {
                     <input type="password" name="password" className="form-control" placeholder="Enter password of more than 8 digit" value={this.state.password} onChange={this.handleChange}/>
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block" onClick={this.register}>Sign Up</button>
+                <button type="submit" className="btn btn-primary" onClick={this.register}>Sign Up</button>
                 <p className="forgot-password text-right">
-                    Already registered <a href="/">Sign in?</a>
+                    Already registered? <a href="/">Sign in</a>
                 </p>
             </form>
         );
